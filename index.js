@@ -39,10 +39,10 @@ async function connectDB() {
 connectDB();
 
 const db = client.db('scicjobtaskDB');
-const productCollection = db.collection('productUp');
+const productCollection = db.collection('productAll');
 
 // Get products with pagination, searching, categorization, and sorting
-app.get('/productUp', async (req, res) => {
+app.get('/productAll', async (req, res) => {
   try {
     const { page = 1, limit = 40, search = '', category = '', brand = '', minPrice = 0, maxPrice = Infinity, minRating = 0, sort = 'createdAt', order = 'desc' } = req.query;
 
@@ -76,7 +76,7 @@ app.get('/productUp', async (req, res) => {
 
 
 // Insert dummy product data (run once)
-app.post('/productUp/dummy', async (req, res) => {
+app.post('/productALl/dummy', async (req, res) => {
   try {
     const dummyProducts = Array.from({ length: 40 }, (_, index) => ({
       name: `Product ${index + 1}`,
